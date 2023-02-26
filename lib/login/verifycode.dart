@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
+import 'package:todo_app/pages/home.dart';
 
 class VerifyCode extends StatefulWidget {
   final String VerificationId;
@@ -13,7 +14,7 @@ class VerifyCode extends StatefulWidget {
 }
 
 class _VerifyCodeState extends State<VerifyCode> {
-  final TextEditingController _PhoneTextController = TextEditingController();
+  final TextEditingController _VerifyCodeController = TextEditingController();
     bool loading = false;
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class _VerifyCodeState extends State<VerifyCode> {
         child: Column(
           children: [
             TextFormField(
-                    controller: _PhoneTextController,
+                    controller: _VerifyCodeController,
                     keyboardType: TextInputType.visiblePassword,
                     obscureText: true,
                     decoration: InputDecoration(
@@ -66,8 +67,9 @@ class _VerifyCodeState extends State<VerifyCode> {
                           loading = true;
                         });
                         try {
-                          final credential = PhoneAuthProvider.credential(verificationId: widget.VerificationId, smsCode: _PhoneTextController.text.toString());
+                          final credential = PhoneAuthProvider.credential(verificationId: widget.VerificationId, smsCode: _VerifyCodeController.text.toString());
                           FirebaseAuth.instance.signInWithCredential(credential);
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
                          
                         } catch (e) {
                           final snackBar = SnackBar(content: Text(e.toString()));
