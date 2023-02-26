@@ -30,7 +30,7 @@ class _VerifyWithPhoneState extends State<VerifyWithPhone> {
           child: Column(children: [
             TextFormField(
                     controller: _PhoneTextController,
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 13.0, vertical: 14.0),
