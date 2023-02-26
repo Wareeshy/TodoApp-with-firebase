@@ -66,7 +66,8 @@ class _VerifyCodeState extends State<VerifyCode> {
                           loading = true;
                         });
                         try {
-                          final credential = PhoneAuthProvider.credential(verificationId: widget.VerificationId, smsCode: _PhoneTextController.text);
+                          final credential = PhoneAuthProvider.credential(verificationId: widget.VerificationId, smsCode: _PhoneTextController.text.toString());
+                          FirebaseAuth.instance.signInWithCredential(credential);
                          
                         } catch (e) {
                           final snackBar = SnackBar(content: Text(e.toString()));
@@ -76,9 +77,7 @@ class _VerifyCodeState extends State<VerifyCode> {
                           });
                         }
                       }),
-                      child: loading
-                          ? CircularProgressIndicator()
-                          : Text(
+                      child: Text(
                               'Verify',
                               style: TextStyle(
                                 fontWeight: FontWeight.w500,
