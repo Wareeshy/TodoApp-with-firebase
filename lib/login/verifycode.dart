@@ -36,7 +36,7 @@ class _VerifyCodeState extends State<VerifyCode> {
                     decoration: InputDecoration(
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 13.0, vertical: 14.0),
-                      hintText: 'Enter Otp',
+                      hintText: 'Enter 6 digit code',
                       hintStyle: TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.w300,

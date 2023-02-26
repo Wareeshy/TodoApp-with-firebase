@@ -34,7 +34,7 @@ class _VerifyWithPhoneState extends State<VerifyWithPhone> {
                     decoration: InputDecoration(
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 13.0, vertical: 14.0),
-                      hintText: '+923522102965',
+                      hintText: '+9 235 2210 296',
                       hintStyle: TextStyle(
                         fontSize: 18.0,
                         fontWeight: FontWeight.w300,
